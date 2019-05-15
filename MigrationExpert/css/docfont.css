@@ -1,0 +1,19 @@
+@font-face {
+    font-family: LiberationSans-Bold_c;
+    src: url("@Url.Content("~/fonts/LiberationSans-Bold_c.woff")") format("woff");
+}
+
+@font-face {
+    font-family: LiberationSansNarrow-Bold_r;
+    src: url("@Url.Content("~/fonts/LiberationSansNarrow-Bold_r.woff")") format("woff");
+}
+
+@font-face {
+    font-family: LiberationSansNarrow_m;
+    src: url("@Url.Content("~/fonts/LiberationSansNarrow_m.woff")") format("woff");
+}
+
+@font-face {
+    font-family: LiberationSans_h;
+    src: url("@Url.Content("~/fonts/LiberationSans_h.woff")") format("woff");
+}
