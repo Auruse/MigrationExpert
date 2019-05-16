@@ -5,9 +5,10 @@ using System.Web;
 
 namespace MigrationExpert.Models
 {
-    public class FormN
+    public partial class FormN
     {
-        string Name { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
 
     }
 }

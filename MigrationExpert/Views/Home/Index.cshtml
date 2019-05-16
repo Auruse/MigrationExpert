@@ -3,14 +3,21 @@
 @{ 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<body>
-    <h1>Complex Type</h1>
-    @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
-    {
-        @Html.EditorFor(m => Model.Name)
-        <input type="submit" value="Submit" />
-    }
+    <body>
+        <h1>Complex Type</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-sm-9">
+                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", placeholder = "Your email" } })
+            </div>
+            <div class="col-sm-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Your email" } })
+            </div>
+            <button type="submit" class="btn btn-success mr-xl-5">Submit</button>
+        }
 
 
 
-</body>
+    </body>
