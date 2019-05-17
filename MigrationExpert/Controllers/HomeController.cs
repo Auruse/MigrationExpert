@@ -12,8 +12,6 @@ namespace MigrationExpert.Controllers
         // GET: Home
         public ActionResult Index1()
         {
-
-
             return View();
         }
         [HttpGet]
@@ -27,8 +25,10 @@ namespace MigrationExpert.Controllers
         public ActionResult Index(FormN FormData)
         {
              
-            ViewBag.NameD = FormData.Surname ?? " ";
-            ViewBag.NameP = FormData.Name;
+            ViewBag.NameD = FormData.Surname.ToUpper() ?? " ";
+            ViewBag.NameP = FormData.Name.ToUpper();
+            ViewBag.CitizenShip = FormData.Citizenship.ToUpper();
+            ViewBag.DateofBirth = FormData.DateOfBirth;
             return View("Index1");
         }
 
