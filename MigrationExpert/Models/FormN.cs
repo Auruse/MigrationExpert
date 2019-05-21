@@ -102,7 +102,7 @@ namespace MigrationExpert.Models
             [Display(Name = "Транзит/Transit")]
             transit,
             [Display(Name = "Гуманитарная/Humanitarian")]
-            рumanitarian,
+            humanitarian,
             [Display(Name = "Другая/Other")]
             other
         }

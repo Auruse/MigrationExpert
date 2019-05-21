@@ -37,6 +37,16 @@ namespace MigrationExpert.Controllers
             ViewBag.PersonalDocumentDateOfIssue = FormData.PersonalDocumentDateOfIssue;
             ViewBag.PersonalDocumentDateOfExpiration = FormData.PersonalDocumentDateOfExpiration;
             ViewBag.YourVisa = FormData.YourVisa.ToString() ?? "visa";
+            ViewBag.RegDocumentSeries = FormData.RegDocumentSeries?.ToUpper() ?? " ";
+            ViewBag.RegDocumentNumber = FormData.RegDocumentNumber?.ToUpper() ?? " ";
+            ViewBag.RegDocumentDateOfIssue = FormData.RegDocumentDateOfIssue;
+            ViewBag.RegDocumentDateOfExpiration = FormData.RegDocumentDateOfExpiration;
+            ViewBag.YourVisitPurpose = FormData.YourVisitPurpose.ToString() ?? "tourism";
+            ViewBag.profession = FormData.Profession.ToString() ?? " ";
+            ViewBag.ArrivalDate = FormData.ArrivalDate;
+            ViewBag.DepartureDate = FormData.DepartureDate;
+            ViewBag.MigrationCardSeries = FormData.MigrationCardSeries.ToString() ?? " ";
+            ViewBag.MigrationCardNumber = FormData.MigrationCardNumber.ToString() ?? " ";
             return View("Index1");
         }
 

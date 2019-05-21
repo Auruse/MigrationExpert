@@ -780,115 +780,110 @@
                     }
                     if (YourVisa == "tempResidence")
                     {
-                        <div class="c x10 y27 w8 hd">
+                        <div class="c x1a y27 w8 hd">
                             <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
                         </div>
                     }
 
-                    <div class="c x1a y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-
-
-                    <div class="c x1e y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x1f y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x20 y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x21 y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x23 y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x24 y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x25 y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x26 y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x2b y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x27 y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x29 y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x2a y27 w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-                    <div class="c x2c y27 w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
-
                     <div class="c x33 y27 w1a h2">
                         <div class="t m0 x2d hc y15 ff4 fs2 fc0 sc0 ls0 ws0">Серия</div>
                     </div>
+
+                    string divN8 = "x1e w8,x1f w7,x20 w8,x21 w7";
+
+                    string regDocumentSeriesForm = ViewBag.RegDocumentSeries;
+                    int c8 = 1;
+                    foreach (var divItem in divN8.Split(','))
+                    {
+                        if (regDocumentSeriesForm.Count() >= c8)
+                        {
+                            <div class="c y27 hd @divItem">
+                                <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">@regDocumentSeriesForm[c8 - 1]</div>
+                            </div>
+                        }
+                        else { break; }
+
+                        c8 += 1;
+                    }
+
                     <div class="c x34 y27 w14 h2">
                         <div class="t m0 x28 hc y15 ff4 fs2 fc0 sc0 ls0 ws0">№</div>
                     </div>
+
+                    string divN9 = "x23 w7,x24 w8,x25 w7,x26 w7,x2b w8,x27 w7,x29 w8,x2a w7,x2c w8";
+                    string regDocumentNumberForm = ViewBag.RegDocumentNumber;
+                    int c9 = 1;
+                    foreach (var divItem in divN9.Split(','))
+                    {
+                        if (regDocumentNumberForm.Count() >= c9)
+                        {
+                            <div class="c y27 hd @divItem">
+                                <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">@regDocumentNumberForm[c9 - 1]</div>
+                            </div>
+                        }
+                        else { break; }
+
+                        c9 += 1;
+                    }
+
                     <div class="c x5 y28 wc h7">
                         <div class="t m0 x2 hc y1a ff4 fs2 fc0 sc0 ls0 ws0">Дата выдачи:</div>
                     </div>
+
+                    string RegDocumentDateOfIssue = ViewBag.RegDocumentDateOfIssue.ToString("dd.MM.yyyy");
+                    <div class="c xa y29 w7 h9">
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[0]</div>
+                    </div>
+                    <div class="c xb y29 w8 h9">
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[1]</div>
+                    </div>
+                    <div class="c xe y29 w7 h9">
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[3]</div>
+                    </div>
+                    <div class="c xf y29 w8 h9">
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[4]</div>
+                    </div>
+                    <div class="c x11 y29 w8 h9">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[6]</div>
+                    </div>
+                    <div class="c x12 y29 w8 h9">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[7]</div>
+                    </div>
+                    <div class="c x13 y29 w8 h9">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[8]</div>
+                    </div>
+                    <div class="c x14 y29 w8 h9">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfIssue[9]</div>
+                    </div>
+
+                    string RegDocumentDateOfExpiration = ViewBag.RegDocumentDateOfExpiration.ToString("dd.MM.yyyy");
                     <div class="c x35 y28 w15 h7">
                         <div class="t m0 x36 hc y1a ff4 fs2 fc0 sc0 ls0 ws0">Срок действия:</div>
                     </div>
-                    <div class="c xa y29 w7 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">D</div>
-                    </div>
-                    <div class="c xb y29 w8 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">D</div>
-                    </div>
-                    <div class="c xe y29 w7 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">M</div>
-                    </div>
-                    <div class="c xf y29 w8 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">M</div>
-                    </div>
-                    <div class="c x11 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
-                    </div>
-                    <div class="c x12 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
-                    </div>
-                    <div class="c x13 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
-                    </div>
-                    <div class="c x14 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
-                    </div>
+
                     <div class="c x1a y29 w8 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">D</div>
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[0]</div>
                     </div>
                     <div class="c x1b y29 w7 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">D</div>
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[1]</div>
                     </div>
                     <div class="c x1e y29 w8 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">M</div>
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[3]</div>
                     </div>
                     <div class="c x1f y29 w7 h9">
-                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">M</div>
+                        <div class="t m0 x2 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[4]</div>
                     </div>
                     <div class="c x21 y29 w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[6]</div>
                     </div>
                     <div class="c x22 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[7]</div>
                     </div>
                     <div class="c x23 y29 w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[8]</div>
                     </div>
                     <div class="c x24 y29 w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">Y</div>
+                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@RegDocumentDateOfExpiration[9]</div>
                     </div>
                     <div class="c x5 y29 w16 h14">
                         <div class="t m0 x37 hc y2a ff4 fs2 fc0 sc0 ls0 ws0">число</div>
@@ -908,257 +903,244 @@
                     <div class="c x3b y29 wf h14">
                         <div class="t m0 x9 hc y2a ff4 fs2 fc0 sc0 ls0 ws0">год</div>
                     </div>
+
+                    string YourVisitPurpose = ViewBag.YourVisitPurpose;
+
+
+
                     <div class="c x5 y2b wc h9">
                         <div class="t m0 x2 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">Цель въезда:</div>
                     </div>
                     <div class="c xa y2b wa h9">
                         <div class="t m0 x2 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">служебная</div>
                     </div>
-                    <div class="c xd y2b w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "gov")
+                    {
+                        <div class="c xd y2b w8 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
+
                     <div class="c x3d y2b w1a h9">
                         <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">туризм</div>
                     </div>
-                    <div class="c x10 y2b w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "tourism")
+                    {
+                        <div class="c x10 y2b w8 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x11 y2b w1b h9">
                         <div class="t m0 x3e hc y10 ff4 fs2 fc0 sc0 ls0 ws0">деловая</div>
                     </div>
-                    <div class="c x14 y2b w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "business")
+                    {
+                        <div class="c x14 y2b w8 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x15 y2b wd h9">
                         <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">учеба</div>
                     </div>
-                    <div class="c x17 y2b w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "study")
+                    {
+                        <div class="c x17 y2b w7 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x2f y2b w1a h9">
                         <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">работа</div>
                     </div>
-                    <div class="c x1a y2b w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "work")
+                    {
+                        <div class="c x1a y2b w8 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x3f y2b we h9">
                         <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">частная</div>
                     </div>
-                    <div class="c x1d y2b w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "privateP")
+                    {
+                        <div class="c x1d y2b w7 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x40 y2b we h9">
                         <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">транзит</div>
                     </div>
-                    <div class="c x20 y2b w8 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "transit")
+                    {
+                        <div class="c x20 y2b w8 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x41 y2b w1c h9">
                         <div class="t m0 x36 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">гуманитарная</div>
                     </div>
-                    <div class="c x25 y2b w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "humanitarian")
+                    {
+                        <div class="c x25 y2b w7 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x42 y2b we h9">
                         <div class="t m0 x28 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">другая</div>
                     </div>
-                    <div class="c x27 y2b w7 h9">
-                        <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                    </div>
+                    if (YourVisitPurpose == "other")
+                    {
+                        <div class="c x27 y2b w7 h9">
+                            <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
+                        </div>
+                    }
                     <div class="c x5 y2c wa hd">
                         <div class="t m0 x2 hc y2d ff4 fs2 fc0 sc0 ls0 ws0">Профессия</div>
                     </div>
-                    <div class="c x8 y2c w8 hd">
-                        <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">М</div>
+                    string divN10 = "x23 w7,x24 w8,x25 w7,x26 w7,x2b w8,x27 w7,x29 w8,x2a w7,x2c w8";
+                    string profession = ViewBag.RegDocumentNumber;
+                    int c10 = 1;
+                    foreach (var divItem in divN10.Split(','))
+                    {
+                        if (profession.Count() >= c10)
+                        {
+                            <div class="c y27 hd @divItem">
+                                <div class="t m0 x9 ha y14 ff3 fs3 fc0 sc0 ls0 ws0">@profession[c10 - 1]</div>
+                            </div>
+                        }
+                        else { break; }
+
+                        c10 += 1;
+                    }
+
+                    <div class="c x5 y2e w1d hf">
+                        <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Дата въезда:</div>
                     </div>
-                    <div class="c xa y2c w7 hd">
-                        <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">А</div>
+                    <div class="c x43 y2e w1a hf">
+                        <div class="t m0 x44 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">число</div>
                     </div>
-                    <div class="c xb y2c w8 hd">
-                        <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
+
+                    string ArrivalDate = ViewBag.ArrivalDate.ToString("dd.MM.yyyy");
+
+                    <div class="c xc y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[0]</div>
                     </div>
-                    <div class="c xc y2c w7 hd">
-                        <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Я</div>
+                    <div class="c xd y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[1]</div>
                     </div>
-                    <div class="c xd y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x3d y2e we hf">
+                        <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">месяц</div>
                     </div>
-                    <div class="c xe y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x10 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[3]</div>
                     </div>
-                    <div class="c xf y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x11 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[4]</div>
                     </div>
-                    <div class="c x10 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x45 y2e w1e hf">
+                        <div class="t m0 x9 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">год</div>
                     </div>
-                    <div class="c x11 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x13 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[6]</div>
                     </div>
-                    <div class="c x12 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x14 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[7]</div>
                     </div>
-                    <div class="c x13 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x15 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[8]</div>
                     </div>
-                    <div class="c x14 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x16 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@ArrivalDate[9]</div>
                     </div>
-                    <div class="c x15 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x19 y2e w1f hf">
+                        <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Срок пребывания до:</div>
                     </div>
-                    <div class="c x16 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    string DepartureDate = ViewBag.DepartureDate.ToString("dd.MM.yyyy");
+
+                    <div class="c x46 y2e w1a hf">
+                        <div class="t m0 x44 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">число</div>
                     </div>
-                    <div class="c x17 y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x21 y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[0]</div>
                     </div>
-                    <div class="c x18 y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x22 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[1]</div>
                     </div>
-                    <div class="c x19 y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x47 y2e we hf">
+                        <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">месяц</div>
                     </div>
-                    <div class="c x1a y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x25 y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[3]</div>
                     </div>
-                    <div class="c x1b y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x26 y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[4]</div>
                     </div>
-                    <div class="c x1c y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x48 y2e wf hf">
+                        <div class="t m0 x9 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">год</div>
                     </div>
-                    <div class="c x1d y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x27 y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[6]</div>
                     </div>
-                    <div class="c x1e y2c w8 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x29 y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[7]</div>
                     </div>
-                    <div class="c x1f y2c w7 hd">
-                        <div class="t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
+                    <div class="c x2a y2e w7 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[8]</div>
                     </div>
+                    <div class="c x2c y2e w8 hf">
+                        <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@DepartureDate[9]</div>
+                    </div>
+                    <div class="c x5 y30 w1f hf">
+                        <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Миграционная карта:</div>
+                    </div>
+                    <div class="c x49 y30 we hf">
+                        <div class="t m0 x3e hc y2f ff4 fs2 fc0 sc0 ls0 ws0">серия</div>
+                    </div>
+
+
+                    string divN11 = "xe w7,xf w8,x10 w8,x11 w8";
+                    string MigrationCardSeries = ViewBag.MigrationCardSeries;
+                    int c11 = 1;
+                    foreach (var divItem in divN11.Split(','))
+                    {
+                        if (MigrationCardSeries.Count() >= c11)
+                        {
+                            <div class="c y30 hf @divItem">
+                                <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@MigrationCardSeries[c11 - 1]</div>
+                            </div>
+                        }
+                        else { break; }
+
+                        c11 += 1;
+                    }
+
+                    <div class="c x45 y30 w1e hf">
+                        <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">№</div>
+                    </div>
+
+                    string divN12 = "x13 w8,x14 w8,x15 w8,x16 w8,x17 w7,x18 w8,x19 w7";
+                    string MigrationCardNumber = ViewBag.MigrationCardNumber;
+                    int c12 = 1;
+                    foreach (var divItem in divN12.Split(','))
+                    {
+                        if (MigrationCardNumber.Count() >= c12)
+                        {
+                            <div class="c y30 hf @divItem">
+                                <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">@MigrationCardNumber[c12 - 1]</div>
+                            </div>
+                        }
+                        else { break; }
+
+                        c12 += 1;
+                    }
+                    
                 }
-                <div class="c x5 y2e w1d hf">
-                    <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Дата въезда:</div>
-                </div>
-                <div class="c x43 y2e w1a hf">
-                    <div class="t m0 x44 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">число</div>
-                </div>
-                <div class="c xc y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c xd y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">6</div>
-                </div>
-                <div class="c x3d y2e we hf">
-                    <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">месяц</div>
-                </div>
-                <div class="c x10 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">0</div>
-                </div>
-                <div class="c x11 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x45 y2e w1e hf">
-                    <div class="t m0 x9 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">год</div>
-                </div>
-                <div class="c x13 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x14 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">0</div>
-                </div>
-                <div class="c x15 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">1</div>
-                </div>
-                <div class="c x16 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">9</div>
-                </div>
-                <div class="c x19 y2e w1f hf">
-                    <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Срок пребывания до:</div>
-                </div>
-                <div class="c x46 y2e w1a hf">
-                    <div class="t m0 x44 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">число</div>
-                </div>
-                <div class="c x21 y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x22 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">5</div>
-                </div>
-                <div class="c x47 y2e we hf">
-                    <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">месяц</div>
-                </div>
-                <div class="c x25 y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">0</div>
-                </div>
-                <div class="c x26 y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">5</div>
-                </div>
-                <div class="c x48 y2e wf hf">
-                    <div class="t m0 x9 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">год</div>
-                </div>
-                <div class="c x27 y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x29 y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">0</div>
-                </div>
-                <div class="c x2a y2e w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">1</div>
-                </div>
-                <div class="c x2c y2e w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">9</div>
-                </div>
-                <div class="c x5 y30 w1f hf">
-                    <div class="t m0 x2 hc y2f ff4 fs2 fc0 sc0 ls0 ws0">Миграционная карта:</div>
-                </div>
-                <div class="c x49 y30 we hf">
-                    <div class="t m0 x3e hc y2f ff4 fs2 fc0 sc0 ls0 ws0">серия</div>
-                </div>
-                <div class="c xe y30 w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c xf y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">3</div>
-                </div>
-                <div class="c x10 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">4</div>
-                </div>
-                <div class="c x11 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">5</div>
-                </div>
-                <div class="c x45 y30 w1e hf">
-                    <div class="t m0 x2d hc y2f ff4 fs2 fc0 sc0 ls0 ws0">№</div>
-                </div>
-                <div class="c x13 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">7</div>
-                </div>
-                <div class="c x14 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x15 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x16 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">5</div>
-                </div>
-                <div class="c x17 y30 w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">4</div>
-                </div>
-                <div class="c x18 y30 w8 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">2</div>
-                </div>
-                <div class="c x19 y30 w7 hf">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc2 sc0 ls0 ws0">1</div>
-                </div>
                 <div class="c x5 y31 wc h15">
                     <div class="t m0 x2 hc y32 ff4 fs2 fc0 sc0 ls0 ws0">Сведения</div>
                     <div class="t m0 x2 hc y33 ff4 fs2 fc0 sc0 ls0 ws0">о законных</div>
                     <div class="t m0 x2 hc y34 ff4 fs2 fc0 sc0 ls0 ws0">представи-</div>
                     <div class="t m0 x2 hc y35 ff4 fs2 fc0 sc0 ls0 ws0">телях</div>
                 </div>
-                <div class="c xa y36 w7 h16">
+                @*<div class="c xa y36 w7 h16">
                     <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
                 </div>
                 <div class="c xb y36 w8 h16">
@@ -1271,7 +1253,7 @@
                 </div>
                 <div class="c x1c y38 w8 h9">
                     <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                </div>
+                </div>*@
                 <div class="c x5 y39 w1c h17">
                     <div class="t m0 x2 hc y3a ff4 fs2 fc0 sc0 ls0 ws0">Адрес прежнего</div>
                     <div class="t m0 x2 hc y3b ff4 fs2 fc0 sc0 ls0 ws0">места</div>
@@ -1279,7 +1261,7 @@
                     <div class="t m0 x2 hc y3d ff4 fs2 fc0 sc0 ls0 ws0">в Российской</div>
                     <div class="t m0 x2 hc y3e ff4 fs2 fc0 sc0 ls0 ws0">Федерации</div>
                 </div>
-                <div class="c xa y3f w7 h18">
+                @*<div class="c xa y3f w7 h18">
                     <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
                 </div>
                 <div class="c xb y3f w8 h18">
@@ -1449,7 +1431,7 @@
                 </div>
                 <div class="c x1c y41 w8 h16">
                     <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-                </div>
+                </div>*@
                 <div class="c x40 y42 w20 h19">
                     <div class="t m0 x4a h1a y43 ff1 fs4 fc0 sc0 ls0 ws0">Отметка о подтверждении выполнения принимающей</div>
                 </div>
