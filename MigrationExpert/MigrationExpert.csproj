@@ -107,7 +107,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="css\style.css" />
-    <Content Include="css\style2.css" />
     <Content Include="DocView\base.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

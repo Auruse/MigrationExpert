@@ -47,6 +47,20 @@ namespace MigrationExpert.Controllers
             ViewBag.DepartureDate = FormData.DepartureDate;
             ViewBag.MigrationCardSeries = FormData.MigrationCardSeries?.ToString() ?? " ";
             ViewBag.MigrationCardNumber = FormData.MigrationCardNumber?.ToString() ?? " ";
+
+            // Отрывная часть 1 листа
+            ViewBag.ArrivalRegion = FormData.ArrivalRegion?.ToUpper() ?? " ";
+            ViewBag.ArrivalArea = FormData.ArrivalArea?.ToUpper() ?? " ";
+            ViewBag.ArrivalCity = FormData.ArrivalCity?.ToUpper() ?? " ";
+            ViewBag.ArrivalStreet = FormData.ArrivalStreet?.ToUpper() ?? " ";
+            ViewBag.ArrivalHouse = FormData.ArrivalHouse?.ToUpper() ?? " ";
+            ViewBag.ArrivalHouseNumber = FormData.ArrivalHouseNumber?.ToUpper() ?? " ";
+            ViewBag.ArrivalHousingNumber = FormData.ArrivalHousingNumber?.ToUpper() ?? " ";
+            ViewBag.ArrivalBuildingNumber = FormData.ArrivalBuildingNumber?.ToUpper() ?? " ";
+            ViewBag.ArrivalRoomType = FormData.ArrivalRoomType?.ToUpper() ?? " ";
+            ViewBag.ArrivalRoomNumber = FormData.ArrivalRoomNumber?.ToString() ?? " ";
+
+
             return View("Index1");
         }
 

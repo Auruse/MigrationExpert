@@ -454,23 +454,57 @@
                     string divND = "x8 w8, xa w7,xb w8, xc w7,xd w8, xe w7,xf w8, x10 w8,x11 w8, x12 w8,x13 w8, x14 w8,x15 w8, x16 w8,x17 w7, x18 w8,x19 w7, x1a w8,x1b w7, x1c w8,x1d w7, x1e w8,x1f w7, x20 w8,x21 w7, x22 w8,x23 w7, x24 w8,x25 w7, x26 w7,x2b w8, x27 w7,x29 w8, x2a w7,x2c w8";
                     var SplitdivND = divND.Split(',');
                     string nameOnForm = ViewBag.NameP;
+                    string arrivalRegion = ViewBag.ArrivalRegion;
+                    string arrivalArea = ViewBag.ArrivalArea;
+                    string arrivalCity = ViewBag.ArrivalCity;
+                    string arrivalStreet = ViewBag.ArrivalStreet;
+
                     int c = 1;
                     foreach (var divItem in divN.Split(','))
                     {
+
+                        if (arrivalArea.Count() >= c)
+                        { 
+                         <div class="c y58 hd @divItem">
+                            <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">@arrivalArea[c - 1]</div>
+                         </div>
+                        }
+
+                        if (arrivalStreet.Count() >= c)
+                        {
+                        <div class="c y5c hd @divItem">
+                            <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">@arrivalStreet[c - 1]</div>
+                        </div>
+                        }
+
+                        if (c >= 3)
+                        {
+                            if (arrivalRegion.Count() >= c-2)
+                            {
+                            <div class="c y57 hd @divItem">
+                                <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">@arrivalRegion[c - 3]</div>
+                            </div>
+                            }
+                            if (arrivalCity.Count() >= c-2)
+                            {
+                            <div class="c y5b hd @divItem">
+                                <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">@arrivalCity[c - 3]</div>
+                            </div>
+                            }
+                        }
+
                         if (nameOnForm.Count() >= c)
                         {
                             <div class="c y13 hd @divItem">
                                 <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">@nameOnForm[c - 1]</div>
                             </div>
-                            //t m0 x9 ha y14 ff3 fs3 fc1 sc0 ls0 ws0
-                            <div class="c y4b hd @SplitdivND[c-1]">
+
+                            <div class="c y4b hd @divItem">
                                 <div class="t m0 x2 ha y14 ff3 fs3 fc1 sc0 ls0 ws0">@nameOnForm[c - 1]</div>
                             </div>
+
                         }
-                        else
-                        {
-                            break;
-                        }
+                        
                         c += 1;
                     }
                 }
@@ -673,7 +707,7 @@
                             <div class="c y22 h9 @divItem">
                                 <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">@personalDocumentTypeOnForm[c5 - 1]</div>
                             </div>
-                            <div class="c y4d h11 @splitDivND5[c5-1]">
+                            <div class="c y51 h11 @splitDivND5[c5-1]">
                                 <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">@personalDocumentTypeOnForm[c5 - 1]</div>
                             </div>
                         }
@@ -699,7 +733,7 @@
                     <div class="c x34 y51 w14 h11">
                         <div class="t m0 x28 hc y2d ff4 fs2 fc0 sc0 ls0 ws0">№</div>
                     </div>
-                     
+
 
                     string divN6 = "x1e w8,x1f w7,x20 w8,x21 w7";
                     string divND6 = "x1e w8,x1f w7,x20 w8,x21 w7";
@@ -728,7 +762,7 @@
                     </div>
                     string divN7 = "x23 w7,x24 w8,x25 w7,x26 w7,x2b w8,x27 w7,x29 w8,x2a w7,x2c w8";
 
-                    string divND7 = " x25 w7, x26 w7,x2b w8, x27 w7,x29 w8, x2a w7,x2c w8";
+                    string divND7 = "x25 w7, x26 w7,x2b w8, x27 w7,x29 w8, x2a w7,x2c w8";
                     var splitDivND7 = divND7.Split(',');
                     string personalDocumentNumberForm = ViewBag.PersonalDocumentNumber;
                     int c7 = 1;
@@ -739,7 +773,7 @@
                             <div class="c y22 h9 @divItem">
                                 <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">@personalDocumentNumberForm[c7 - 1]</div>
                             </div>
-                            <div class="c y51 h11  @splitDivND7[c7-1]">
+                            <div class="c y51 h11 @divItem">
                                 <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">@personalDocumentNumberForm[c7 - 1]</div>
                             </div>
                         }
@@ -747,9 +781,9 @@
 
                         c7 += 1;
                     }
-                            <div class="c x5 y23 wc h7">
-                                <div class="t m0 x2 hc y1d ff4 fs2 fc0 sc0 ls0 ws0">Дата выдачи:</div>
-                            </div>
+                    <div class="c x5 y23 wc h7">
+                        <div class="t m0 x2 hc y1d ff4 fs2 fc0 sc0 ls0 ws0">Дата выдачи:</div>
+                    </div>
                     <div class="c x35 y23 w15 h7">
                         <div class="t m0 x36 hc y1d ff4 fs2 fc0 sc0 ls0 ws0">Срок действия:</div>
                     </div>
@@ -1335,177 +1369,7 @@
                     <div class="t m0 x2 hc y3d ff4 fs2 fc0 sc0 ls0 ws0">в Российской</div>
                     <div class="t m0 x2 hc y3e ff4 fs2 fc0 sc0 ls0 ws0">Федерации</div>
                 </div>
-                @*<div class="c xa y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xb y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xc y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xd y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xe y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xf y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x10 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x11 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x12 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x13 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x14 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x15 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x16 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x17 y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x18 y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x19 y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1a y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1b y3f w7 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1c y3f w8 h18">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xa y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xb y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xc y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xd y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xe y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xf y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x10 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x11 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x12 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x13 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x14 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x15 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x16 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x17 y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x18 y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x19 y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1a y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1b y40 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1c y40 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xa y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xb y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xc y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xd y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xe y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c xf y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x10 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x11 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x12 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x13 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x14 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x15 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x16 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x17 y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x18 y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x19 y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1a y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1b y41 w7 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>
-        <div class="c x1c y41 w8 h16">
-            <div class="t m0 x9 ha y37 ff3 fs3 fc0 sc0 ls0 ws0">X</div>
-        </div>*@
+              
                 <div class="c x40 y42 w20 h19">
                     <div class="t m0 x4a h1a y43 ff1 fs4 fc0 sc0 ls0 ws0">Отметка о подтверждении выполнения принимающей</div>
                 </div>
@@ -1593,432 +1457,32 @@
                     <div class="t m0 x2 hc y55 ff4 fs2 fc0 sc0 ls0 ws0">Область, край,</div>
                     <div class="t m0 x2 hc y56 ff4 fs2 fc0 sc0 ls0 ws0">республика, АО</div>
                 </div>
-                <div class="c xb y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Н</div>
-                </div>
-                <div class="c xc y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">И</div>
-                </div>
-                <div class="c xd y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ж</div>
-                </div>
-                <div class="c xe y57 w7 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Е</div>
-                </div>
-                <div class="c xf y57 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Г</div>
-                </div>
-                <div class="c x10 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x11 y57 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
-                </div>
-                <div class="c x12 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x13 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Д</div>
-                </div>
-                <div class="c x14 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">С</div>
-                </div>
-                <div class="c x15 y57 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">К</div>
-                </div>
-                <div class="c x16 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c x17 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Я</div>
-                </div>
-                <div class="c x18 y57 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">7</div>
-                </div>
-                <div class="c x19 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x1a y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Б</div>
-                </div>
-                <div class="c x1b y57 w7 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
-                </div>
-                <div class="c x1c y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c x1d y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">С</div>
-                </div>
-                <div class="c x1e y57 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Т</div>
-                </div>
-                <div class="c x1f y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x20 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x21 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x22 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x23 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x24 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x25 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x26 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x2b y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x27 y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x29 y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x2a y57 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
-                <div class="c x2c y57 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Ь</div>
-                </div>
+               
                 <div class="c x5 y58 wa h11">
                     <div class="t m0 x2 hc y59 ff4 fs2 fc0 sc0 ls0 ws0">Район</div>
                 </div>
-                <div class="c x8 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">П</div>
-                </div>
-                <div class="c xa y58 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c xb y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">В</div>
-                </div>
-                <div class="c xc y58 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
-                </div>
-                <div class="c xd y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c xe y58 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">В</div>
-                </div>
-                <div class="c xf y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">С</div>
-                </div>
-                <div class="c x10 y58 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">К</div>
-                </div>
-                <div class="c x11 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">И</div>
-                </div>
-                <div class="c x12 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Й</div>
-                </div>
-                <div class="c x13 y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x14 y58 w8 h11">
-                    <div class="t m0 x9 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Р</div>
-                </div>
-                <div class="c x15 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c x16 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Й</div>
-                </div>
-                <div class="c x17 y58 w7 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x18 y58 w8 h11">
-                    <div class="t m0 x2 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">Н</div>
-                </div>
-                <div class="c x19 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1a y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1b y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1c y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1d y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1e y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1f y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x20 y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x21 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x22 y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x23 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x24 y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x25 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x26 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2b y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x27 y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x29 y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2a y58 w7 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2c y58 w8 h11">
-                    <div class="t m0 x28 ha y18 ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
+               
                 <div class="c x5 y5a w12 h2">
                     <div class="t m0 x2 hc y15 ff4 fs2 fc0 sc0 ls0 ws0">Город или другой</div>
                 </div>
-                <div class="c xb y5b w8 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">П</div>
-                </div>
-                <div class="c xc y5b w7 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c xd y5b w8 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">В</div>
-                </div>
-                <div class="c xe y5b w7 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
-                </div>
-                <div class="c xf y5b w8 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x10 y5b w8 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">В</div>
-                </div>
-                <div class="c x11 y5b w8 h9">
-                    <div class="t m0 x2 ha yc ff3 fs3 fc1 sc0 ls0 ws0">О</div>
-                </div>
-                <div class="c x12 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x13 y5b w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">Г</div>
-                </div>
-                <div class="c x14 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x15 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x16 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x17 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x18 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x19 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1a y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1b y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1c y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1d y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1e y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1f y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x20 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x21 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x22 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x23 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x24 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x25 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x26 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2b y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x27 y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x29 y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2a y5b w7 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2c y5b w8 h9">
-                    <div class="t m0 x28 ha yc ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
+              
                 <div class="c x5 y5b w12 h14">
                     <div class="t m0 x2 hc y1c ff4 fs2 fc0 sc0 ls0 ws0">населенный пункт</div>
                 </div>
                 <div class="c x5 y5c wa h9">
                     <div class="t m0 x2 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">Улица</div>
                 </div>
-                <div class="c x8 y5c w8 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
-                </div>
-                <div class="c xa y5c w7 h9">
-                    <div class="t m0 x9 ha ya ff3 fs3 fc1 sc0 ls0 ws0">Е</div>
-                </div>
-                <div class="c xb y5c w8 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">Н</div>
-                </div>
-                <div class="c xc y5c w7 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">И</div>
-                </div>
-                <div class="c xd y5c w8 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">Н</div>
-                </div>
-                <div class="c xe y5c w7 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">А</div>
-                </div>
-                <div class="c xf y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x10 y5c w8 h9">
-                    <div class="t m0 x9 ha ya ff3 fs3 fc1 sc0 ls0 ws0">У</div>
-                </div>
-                <div class="c x11 y5c w8 h9">
-                    <div class="t m0 x2 ha ya ff3 fs3 fc1 sc0 ls0 ws0">Л</div>
-                </div>
-                <div class="c x12 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x13 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x14 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x15 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x16 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x17 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x18 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x19 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1a y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1b y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1c y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1d y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1e y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x1f y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x20 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x21 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x22 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x23 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x24 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x25 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x26 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2b y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x27 y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x29 y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2a y5c w7 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
-                <div class="c x2c y5c w8 h9">
-                    <div class="t m0 x28 ha ya ff3 fs3 fc1 sc0 ls0 ws0">.</div>
-                </div>
+                
                 <div class="c x5 y5d w19 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">fffffffffffffffffffffffffffffff</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc0 sc0 ls0 ws0">@ViewBag.ArrivalHouse</div>
                 </div>
                 <div class="c x38 y5d we h9">
                     <div class="t m0 x36 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">Дом</div>
                 </div>
+                @{ string ArrivalHouseNumber = ViewBag.ArrivalHouseNumber
+
+
+ }
                 <div class="c xe y5d w7 h9">
                     <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">1</div>
                 </div>
@@ -2098,34 +1562,34 @@
                     <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">число</div>
                 </div>
                 <div class="c xe y62 w7 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">2</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[0]</div>
                 </div>
                 <div class="c xf y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">5</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[1]</div>
                 </div>
                 <div class="c x39 y62 we h9">
                     <div class="t m0 x2d hc y10 ff4 fs2 fc0 sc0 ls0 ws0">месяц</div>
                 </div>
                 <div class="c x12 y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">0</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[3]</div>
                 </div>
                 <div class="c x13 y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">5</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[4]</div>
                 </div>
                 <div class="c x50 y62 w1e h9">
                     <div class="t m0 x9 hc y10 ff4 fs2 fc0 sc0 ls0 ws0">год</div>
                 </div>
                 <div class="c x15 y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">2</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[6]</div>
                 </div>
                 <div class="c x16 y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">0</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[7]</div>
                 </div>
                 <div class="c x17 y62 w7 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">1</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[8]</div>
                 </div>
                 <div class="c x18 y62 w8 h9">
-                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">9</div>
+                    <div class="t m0 x9 ha yc ff3 fs3 fc1 sc0 ls0 ws0">@DepartureDate[9]</div>
                 </div>
                 <div class="c x51 y63 w2a h1f">
                     <div class="t m0 x2 h20 y1d ff3 fs2 fc0 sc0 ls0 ws0">ОТРЫВНАЯ ЧАСТЬ БЛАНКА УВЕДОМЛЕНИЯ О ПРИБЫТИИ ИНОСТРАННОГО ГРАЖДАНИНА</div>

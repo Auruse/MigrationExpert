@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <body>
-    
+
 
     @using (Html.BeginForm())
     {
@@ -217,9 +217,108 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                    Адрес регистрации в России/ Registration Address in Russia
+                </p>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalRegion)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalRegion, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>               
+               
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalArea)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalArea, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalCity)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalCity, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalStreet)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalStreet, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+              
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalHouse)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalHouse, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalHouseNumber)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalHouseNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+              
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalHousingNumber)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalHousingNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalBuildingNumber)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalBuildingNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalRoomType)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalRoomType, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">@Html.LabelFor(model => model.ArrivalRoomNumber)</label>
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model.ArrivalRoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>               
+                     
+                </div>
 
+            </div>
+        </div>
 
-        
     }
 
 

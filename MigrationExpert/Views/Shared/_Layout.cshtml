@@ -18,7 +18,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href=@Url.Content("~/css/style.css")>
-    <link rel="stylesheet" href=@Url.Content("~/css/style2.css")>
+    
     <!-- endinject -->
     <link rel="shortcut icon" href=@Url.Content("~/images/favicon.png") />
 </head>
@@ -90,22 +90,7 @@
                                     </a>
                                 </li>
                             }*@
-                        if (urlPath.Contains("IT"))
-                        {
-                            <li id="4" class="nav-item active">
-                                <a href=@Url.Action("Main", "IT") class="nav-link">
-                                    <i class="mdi mdi-information"></i>Запросы от клиентов
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li id="4" class="nav-item">
-                                <a href=@Url.Action("Main", "IT") class="nav-link">
-                                    <i class="mdi mdi-information"></i>Запросы от клиентов
-                                </a>
-                            </li>
-                        }
+                       
 
                     }
 
@@ -306,58 +291,7 @@
             @RenderBody()
         </div>
     </div>
-    <!-- container-scroller -->
-    @*<script src="https://code.jquery.com/jquery-3.4.1.js"
-                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-                crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-                crossorigin="anonymous"></script>
-        <script>
-            (function ($) {
-                $.fn.drags = function (opt) {
-
-                    opt = $.extend({ handle: "", cursor: "move" }, opt);
-
-                    if (opt.handle === "") {
-                        var $el = this;
-                    } else {
-                        var $el = this.find(opt.handle);
-                    }
-
-                    return $el.css('cursor', opt.cursor).on("mousedown", function (e) {
-                        if (opt.handle === "") {
-                            var $drag = $(this).addClass('draggable');
-                        } else {
-                            var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
-                        }
-                        var z_idx = $drag.css('z-index'),
-                            drg_h = $drag.outerHeight(),
-                            drg_w = $drag.outerWidth(),
-                            pos_y = $drag.offset().top + drg_h - e.pageY,
-                            pos_x = $drag.offset().left + drg_w - e.pageX;
-                        $drag.css('z-index', 1000).parents().on("mousemove", function (e) {
-                            $('.draggable').offset({
-                                top: e.pageY + pos_y - drg_h,
-                                left: e.pageX + pos_x - drg_w
-                            }).on("mouseup", function () {
-                                $(this).removeClass('draggable').css('z-index', z_idx);
-                            });
-                        });
-                        e.preventDefault(); // disable selection
-                    }).on("mouseup", function () {
-                        if (opt.handle === "") {
-                            $(this).removeClass('draggable');
-                        } else {
-                            $(this).removeClass('active-handle').parent().removeClass('draggable');
-                        }
-                    });
-
-                }
-            })(jQuery);
-
-            $('.card').drags();
-        </script>*@
+    
     <script src=@Url.Content("~/vendors/js/vendor.bundle.base.js")></script>
     <script src=@Url.Content("~/vendors/js/vendor.bundle.addons.js")></script>
     <!-- endinject -->
